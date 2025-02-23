@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <!--遍历装着微博对象的数组-->
+  <div v-for="w in arr">
+    <h3>{{w.nickname}}说:{{w.content}}</h3>
+  </div>
+</div>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+<script>
+    let v = new Vue({
+        el:"body>div",
+        data:{
+            arr:[]
+        },
+        created:function () {
+            //当需要进入页面时立即发出请求时,把发请求的代码写在此处
+            axios.get("/weibo/select").then(function (response) {
+                //把服务器响应的微博数据赋值给arr数组,页面会自动显示出数组里面的数据
+                //response.data代表服务器响应的数据(JsonResult对象)
+                //因为微博集合数据是装在JsonResult对象对象里面的data属性中的
+                //JsonResult.data得到的是装着微博数据的数组
+                v.arr = response.data.data;
+            })
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<!--onclick点击事件, 当按钮被点击的时候触发
+alert('xxx')弹出提示框-->
+<input type="button" value="按钮" onclick="alert('内联引入成功!')">
+
+
+<!--内部引入JS代码, script标签建议写在body结束标签的附近-->
+<script>
+  console.log("内部引入成功!");
+</script>
+<!--引入外部的js文件,引入文件后 在标签体内不能写js代码-->
+<script src="my.js"></script>
+</body>
+</html>

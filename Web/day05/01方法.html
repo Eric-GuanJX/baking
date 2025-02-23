@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--按钮调用现有方法-->
+<input type="button" value="按钮" onclick="f1()">
+
+<script>
+  //1. 无参无返回值
+  function f1() {
+    console.log("f1");
+  }
+  //调用方法
+  f1();
+  //2. 有参无返回值
+  function f2(name,age) {
+    console.log(name+":"+age);
+  }
+  f2("张三",80);
+  //3. 无参有返回值
+  function f3() {
+    return "这是一个返回值";
+  }
+  let info = f3();
+  console.log(info);
+  //4. 有参有返回值
+  function f4(x,y) {
+    return x*y;
+  }
+  let result = f4(6,9);
+  console.log(result);
+
+  //第二种声明方法的方式
+  let f5 = function (name,age) {
+    console.log(name+":"+age);
+  }
+  f5("李四",30);
+  //第三种
+  let f6 = new Function("name","age","console.log(name+':'+age)");
+  f6("赵六",50);
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
